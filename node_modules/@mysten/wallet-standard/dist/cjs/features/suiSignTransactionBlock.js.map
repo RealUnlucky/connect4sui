@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/features/suiSignTransactionBlock.ts"],
+  "sourcesContent": ["// Copyright (c) Mysten Labs, Inc.\n// SPDX-License-Identifier: Apache-2.0\n\nimport type { TransactionBlock } from '@mysten/sui.js/transactions';\nimport type { IdentifierString, WalletAccount } from '@wallet-standard/core';\n\n/** The latest API version of the signTransactionBlock API. */\nexport type SuiSignTransactionBlockVersion = '1.0.0';\n\n/**\n * A Wallet Standard feature for signing a transaction, and returning the\n * serialized transaction and transaction signature.\n */\nexport type SuiSignTransactionBlockFeature = {\n\t/** Namespace for the feature. */\n\t'sui:signTransactionBlock': {\n\t\t/** Version of the feature API. */\n\t\tversion: SuiSignTransactionBlockVersion;\n\t\tsignTransactionBlock: SuiSignTransactionBlockMethod;\n\t};\n};\n\nexport type SuiSignTransactionBlockMethod = (\n\tinput: SuiSignTransactionBlockInput,\n) => Promise<SuiSignTransactionBlockOutput>;\n\n/** Input for signing transactions. */\nexport interface SuiSignTransactionBlockInput {\n\ttransactionBlock: TransactionBlock;\n\taccount: WalletAccount;\n\tchain: IdentifierString;\n}\n\n/** Output of signing transactions. */\nexport interface SuiSignTransactionBlockOutput extends SignedTransactionBlock {}\n\nexport interface SignedTransactionBlock {\n\ttransactionBlockBytes: string;\n\tsignature: string;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

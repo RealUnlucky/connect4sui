@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/wallet.ts"],
+  "sourcesContent": ["// Copyright (c) Mysten Labs, Inc.\n// SPDX-License-Identifier: Apache-2.0\n\ndeclare module '@wallet-standard/core' {\n\texport interface Wallet {\n\t\t/**\n\t\t * Unique identifier of the Wallet.\n\t\t *\n\t\t * If not provided, the wallet name will be used as the identifier.\n\t\t */\n\t\treadonly id?: string;\n\t}\n}\n\nexport type { Wallet } from '@wallet-standard/core';\n"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}
