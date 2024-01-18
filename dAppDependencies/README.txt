@@ -1,1 +1,0 @@
-Did Yuri fuck up...?
