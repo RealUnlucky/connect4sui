@@ -60,7 +60,6 @@ module game_board::board {
             };
 
             i = i + 1;
-            
         };
 
         false
