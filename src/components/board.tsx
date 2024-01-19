@@ -2,7 +2,6 @@ import React from "react";
 
 interface Clicker {
   //onMouseMove: (event: React.MouseEvent, x: number, y: number) => void;
-  setIsSelected: (isSelected: boolean) => void;
   isSelected: boolean;
   C4board: boolean[][],
   localBoard: boolean[][],
@@ -13,7 +12,6 @@ interface Clicker {
 const Board: React.FC<Clicker> = ({
   //onMouseMove,
   isSelected,
-  setIsSelected,
   C4board,
   localBoard,
   player1Color,
