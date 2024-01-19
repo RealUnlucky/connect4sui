@@ -44,7 +44,7 @@ module game_board::board {
 
     /// Private function that drops a single token on the board
     fun drop_token(self: &mut Board, x: u64, player: String): bool {
-        assert!(x < self.dimension_x && y < self.dimension_y, EWrongCoordinates); // Check that the coordinates are valid and within bounds, otherwise abort with error code EWrongCoordinates
+        assert!(x < self.dimension_x, EWrongCoordinates); // Check that the coordinates are valid and within bounds, otherwise abort with error code EWrongCoordinates
         let mut_vector = vector::borrow_mut(&mut self.tokens, x); // Borrow a mutable reference to the vector at index x in self.tokens\
         
         let i = 0;
@@ -67,7 +67,7 @@ module game_board::board {
     }
 
     public fun drop_single_token(self: &mut Board, x: u64, player: String): bool {
-        return drop_token(self, x, player); // Call update_token with self, x, y and color as arguments
+        return drop_token(self, x, player); // Call drop_token with self, x, and color as arguments
     }
 
 }
