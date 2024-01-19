@@ -3,6 +3,8 @@ import { Box, Container, Flex, Heading } from "@radix-ui/themes";
 import { WalletStatus } from "./WalletStatus";
 import Board from "./components/board";
 import Structure from "./components/structure";
+import { createBrowserRouter } from "react-router-dom";
+import Router from "./Routers/Router";
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Box>
           <Heading>Sui Connect 4</Heading>
         </Box>
-
+        <Router>
+           <Heading>Test 4</Heading>
+        </Router>
         <Box>
           <ConnectButton />
         </Box>
@@ -30,7 +34,7 @@ function App() {
           pt="2"
           px="4"
           style={{ background: "var(--gray-a2)", minHeight: 100}}
-        >
+        > 
           <WalletStatus />
         </Container>
         <Structure/>
