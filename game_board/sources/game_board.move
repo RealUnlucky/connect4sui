@@ -67,12 +67,6 @@ module game_board::board {
 
     }
 
-    public fun drop_token(self: &mut Board, x: u64, player: String): (bool, bool) {
-        let (tokenDropped, y) = drop_token_private(self, x, player); // Call drop_token with self, x, and color as arguments
-
-        (tokenDropped, is_game_over(self, x, y, player))
-    }
-
     fun is_game_over(self: &mut Board, x: u64, y: u64, player: String): bool {
         let count = 1;
         let i = x + 1;
@@ -180,6 +174,12 @@ module game_board::board {
         };
 
         false
+    }
+    
+    public fun drop_token(self: &mut Board, x: u64, player: String): (bool, bool) {
+        let (tokenDropped, y) = drop_token_private(self, x, player); // Call drop_token with self, x, and color as arguments
+
+        (tokenDropped, is_game_over(self, x, y, player))
     }
 
 }
