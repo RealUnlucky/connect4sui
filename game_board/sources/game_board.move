@@ -1,5 +1,5 @@
 module game_board::board {
-    use std::char::{Char, utf8};
+    use std::string::{String, utf8};
     use std::vector;
     //  use sui::object::{Self, UID};
     use sui::transfer;
@@ -12,7 +12,7 @@ module game_board::board {
         id: UID,
         dimension_x: u64, // The horizontal dimension of the board
         dimension_y: u64, // The vertical dimension of the board
-        tokens: vector<vector<Char>> // A two-dimensional vector of strings representing the colors of the pixels
+        tokens: vector<vector<String>> // A two-dimensional vector of strings representing the colors of the pixels
     }
 
     public fun create_board(
@@ -20,11 +20,11 @@ module game_board::board {
         dim_y: u64,
         ctx: &mut TxContext
     ) {
-        let tokens = vector::empty<vector<Char>>(); // Create an empty vector of vectors of strings
+        let tokens = vector::empty<vector<String>>(); // Create an empty vector of vectors of strings
         let i = 0; // Initialize a loop counter i
         
         while (i < 7) { 
-            let tmp_vec = vector::empty<Char>(); // Create an empty vector of chars
+            let tmp_vec = vector::empty<String>(); // Create an empty vector of Strings
 
             let j = 0; // Initialize another loop counter j
             while (j < 6) { 
