@@ -74,7 +74,111 @@ module game_board::board {
     }
 
     fun is_game_over(self: &mut Board, x: u64, y: u64, player: String): bool {
-        // TO:DO Implement this
+        let count = 1;
+        let i = x + 1;
+        let j = y + 1;
+
+        while (j < 6) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, x), j) != player) {
+                break;
+            };
+            count = count + 1;
+            j = j + 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        j = y - 1;
+        while (j >= 0) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, x), j) != player) {
+                break;
+            };
+            count = count + 1;
+            j = j - 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        count = 1;
+        j = y + 1;
+
+        while (i < 7) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), y) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i + 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        i = x - 1;
+        while (i >= 0) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), y) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i - 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        count = 1;
+        i = x + 1;
+
+        while (i < 7 && j < 6) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), j) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i + 1;
+            j = j + 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        i = x - 1;
+        j = y - 1;
+        while (i >= 0 && j >= 0) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), j) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i - 1;
+            j = j - 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        count = 1;
+        i = x + 1;
+        j = y - 1;
+
+        while (i < 7 && j >= 0) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), j) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i + 1;
+            j = j - 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+        i = x - 1;
+        j = y + 1;
+        while (i >= 0 && j < 6) {
+            if (*vector::borrow_mut(vector::borrow_mut(&mut self.tokens, i), j) != player) {
+                break;
+            };
+            count = count + 1;
+            i = i - 1;
+            j = j + 1;
+            if (count == 4) {
+                return true;
+            };
+        };
+
         false
     }
 
