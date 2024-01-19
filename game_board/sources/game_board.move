@@ -73,8 +73,8 @@ module game_board::board {
 
     fun is_game_over_private(self: &mut Board, x: u64, y: u64, player: String): bool {
         let count = 1;
-        
-        while 
+
+        // while 
     }
 
     public fun is_game_over(self: &mut Board, x: u64, y: u64, player: String): bool {
